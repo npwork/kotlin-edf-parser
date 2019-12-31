@@ -60,11 +60,11 @@ allprojects {
 <dependency>
     <groupId>com.github.npwork</groupId>
     <artifactId>kotlin-edf-parser</artifactId>
-    <version>0.1</version>
+    <version>0.1.1</version>
 </dependency>
 ```
 
 #### Gradle
 ```groovy
-implementation 'com.github.npwork:kotlin-edf-parser:0.1'
+implementation 'com.github.npwork:kotlin-edf-parser:0.1.1'
 ```
