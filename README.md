@@ -1,4 +1,4 @@
-# Kotlin EDF parser
+# Kotlin EDF parser [![Build Status](https://travis-ci.org/npwork/kotlin-edf-parser.svg?branch=master)](https://travis-ci.org/npwork/kotlin-edf-parser)
 Small and simple library written in Kotlin to work with EDF files
 
 EDF format description - https://www.teuniz.net/edfbrowser/edf%20format%20description.html
