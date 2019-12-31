@@ -1,5 +1,5 @@
-# EDF parser for Kotlin
-Small and simple library to work with EDF files written in Kotlin
+# Kotlin EDF parser
+Small and simple library written in Kotlin to work with EDF files
 
 ## Add to your project
 #### First add jitpack repository (https://jitpack.io/)
