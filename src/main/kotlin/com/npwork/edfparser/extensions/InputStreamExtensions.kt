@@ -1,6 +1,6 @@
 package com.npwork.edfparser.extensions
 
-import com.npwork.edfparser.EDFConstants
+import com.npwork.edfparser.EdfConstants
 import java.io.InputStream
 
 fun InputStream.readNBytes(length: Int): ByteArray {
@@ -9,7 +9,7 @@ fun InputStream.readNBytes(length: Int): ByteArray {
     return data
 }
 
-fun InputStream.readASCII(length: Int): String = String(readNBytes(length), EDFConstants.CHARSET).trim()
+fun InputStream.readASCII(length: Int): String = String(readNBytes(length), EdfConstants.CHARSET).trim()
 
 fun InputStream.readASCIIBulk(length: Int, times: Int): List<String> = (1..times).map { this.readASCII(length) }
 fun InputStream.readASCIIBulkDouble(length: Int, times: Int): List<Double> = (1..times).map { this.readASCII(length).trim().toDouble() }

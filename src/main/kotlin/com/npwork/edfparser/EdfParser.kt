@@ -37,32 +37,32 @@ object EdfParser {
         var numberOfChannels = 0
         return EdfHeader(
                 idCode = fun(): String {
-                    val idCode = stream.readASCII(EDFConstants.IDENTIFICATION_CODE_SIZE)
+                    val idCode = stream.readASCII(EdfConstants.IDENTIFICATION_CODE_SIZE)
                     ensureValidIdentificationCode(idCode)
                     return idCode
                 }(),
-                subjectID = stream.readASCII(EDFConstants.LOCAL_SUBJECT_IDENTIFICATION_SIZE),
-                recordingID = stream.readASCII(EDFConstants.LOCAL_REOCRDING_IDENTIFICATION_SIZE),
-                startDate = stream.readASCII(EDFConstants.START_DATE_SIZE),
-                startTime = stream.readASCII(EDFConstants.START_TIME_SIZE),
-                bytesInHeader = stream.readASCII(EDFConstants.HEADER_SIZE).trim().toInt(),
-                formatVersion = stream.readASCII(EDFConstants.DATA_FORMAT_VERSION_SIZE),
-                numberOfRecords = stream.readASCII(EDFConstants.NUMBER_OF_DATA_RECORDS_SIZE).trim().toInt(),
-                durationOfRecords = stream.readASCII(EDFConstants.DURATION_DATA_RECORDS_SIZE).trim().toDouble(),
+                subjectID = stream.readASCII(EdfConstants.LOCAL_SUBJECT_IDENTIFICATION_SIZE),
+                recordingID = stream.readASCII(EdfConstants.LOCAL_REOCRDING_IDENTIFICATION_SIZE),
+                startDate = stream.readASCII(EdfConstants.START_DATE_SIZE),
+                startTime = stream.readASCII(EdfConstants.START_TIME_SIZE),
+                bytesInHeader = stream.readASCII(EdfConstants.HEADER_SIZE).trim().toInt(),
+                formatVersion = stream.readASCII(EdfConstants.DATA_FORMAT_VERSION_SIZE),
+                numberOfRecords = stream.readASCII(EdfConstants.NUMBER_OF_DATA_RECORDS_SIZE).trim().toInt(),
+                durationOfRecords = stream.readASCII(EdfConstants.DURATION_DATA_RECORDS_SIZE).trim().toDouble(),
                 numberOfChannels = fun(): Int {
-                    numberOfChannels = stream.readASCII(EDFConstants.NUMBER_OF_CHANELS_SIZE).trim().toInt()
+                    numberOfChannels = stream.readASCII(EdfConstants.NUMBER_OF_CHANELS_SIZE).trim().toInt()
                     return numberOfChannels
                 }(),
-                channelLabels = stream.readASCIIBulk(EDFConstants.LABEL_OF_CHANNEL_SIZE, numberOfChannels),
-                transducerTypes = stream.readASCIIBulk(EDFConstants.TRANSDUCER_TYPE_SIZE, numberOfChannels),
-                dimensions = stream.readASCIIBulk(EDFConstants.PHYSICAL_DIMENSION_OF_CHANNEL_SIZE, numberOfChannels),
-                minInUnits = stream.readASCIIBulkDouble(EDFConstants.PHYSICAL_MIN_IN_UNITS_SIZE, numberOfChannels),
-                maxInUnits = stream.readASCIIBulkDouble(EDFConstants.PHYSICAL_MAX_IN_UNITS_SIZE, numberOfChannels),
-                digitalMin = stream.readASCIIBulkInt(EDFConstants.DIGITAL_MIN_SIZE, numberOfChannels),
-                digitalMax = stream.readASCIIBulkInt(EDFConstants.DIGITAL_MAX_SIZE, numberOfChannels),
-                prefilterings = stream.readASCIIBulk(EDFConstants.PREFILTERING_SIZE, numberOfChannels),
-                numberOfSamples = stream.readASCIIBulkInt(EDFConstants.NUMBER_OF_SAMPLES_SIZE, numberOfChannels),
-                reserveds = (1..numberOfChannels).map { stream.readNBytes(EDFConstants.RESERVED_SIZE) }
+                channelLabels = stream.readASCIIBulk(EdfConstants.LABEL_OF_CHANNEL_SIZE, numberOfChannels),
+                transducerTypes = stream.readASCIIBulk(EdfConstants.TRANSDUCER_TYPE_SIZE, numberOfChannels),
+                dimensions = stream.readASCIIBulk(EdfConstants.PHYSICAL_DIMENSION_OF_CHANNEL_SIZE, numberOfChannels),
+                minInUnits = stream.readASCIIBulkDouble(EdfConstants.PHYSICAL_MIN_IN_UNITS_SIZE, numberOfChannels),
+                maxInUnits = stream.readASCIIBulkDouble(EdfConstants.PHYSICAL_MAX_IN_UNITS_SIZE, numberOfChannels),
+                digitalMin = stream.readASCIIBulkInt(EdfConstants.DIGITAL_MIN_SIZE, numberOfChannels),
+                digitalMax = stream.readASCIIBulkInt(EdfConstants.DIGITAL_MAX_SIZE, numberOfChannels),
+                prefilterings = stream.readASCIIBulk(EdfConstants.PREFILTERING_SIZE, numberOfChannels),
+                numberOfSamples = stream.readASCIIBulkInt(EdfConstants.NUMBER_OF_SAMPLES_SIZE, numberOfChannels),
+                reserveds = (1..numberOfChannels).map { stream.readNBytes(EdfConstants.RESERVED_SIZE) }
         )
     }
 

@@ -2,7 +2,7 @@ package com.npwork.edfparser
 
 import java.nio.charset.Charset
 
-object EDFConstants {
+object EdfConstants {
     val CHARSET = Charset.forName("ASCII")
 
     const val IDENTIFICATION_CODE_SIZE = 8
